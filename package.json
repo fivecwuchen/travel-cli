@@ -1,0 +1,82 @@
+{
+  "name": "travel-cli",
+  "version": "0.0.0",
+  "author": "mysticFalls0709 <438591641@qq.com>",
+  "description": "A cordova-vue project",
+  "license": null,
+  "scripts": {
+    "check": "cordova requirements",
+    "dev": "cross-env PORT=3000 node build/dev-server.js",
+    "build": "node build/build.js",
+    "build:browser": "cordova prepare browser",
+    "build:ios": "cordova prepare ios && cordova build ios",
+    "build:android": "cordova prepare android && cordova build android",
+    "genkey:apk": "keytool -genkey -v -keystore release-key.keystore -alias travel-cli -keyalg RSA -keysize 2048 -validity 10000",
+    "release:android": "cordova prepare android && cordova build android --release -- --keystore=\"release-key.keystore\" --alias=travel-cli --storePassword=$STORE_PASSWORD --password=$PASSWORD",
+    "test": "npm run build",
+    "preinstall": "cordova prepare"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cordova-android": "~7.1.2",
+    "cordova-browser": "~5.0.4",
+    "cordova-ios": "~4.5.5",
+    "element-ui": "^2.6.1",
+    "mockjs": "^1.0.1-beta3",
+    "vue": "^2.5.17",
+    "vue-amap": "^0.5.8",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "cfonts": "^2.2.3",
+    "chalk": "^2.1.0",
+    "connect-history-api-fallback": "^1.5.0",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.4",
+    "escape-string-regexp": "^1.0.5",
+    "eventsource-polyfill": "^0.9.6",
+    "express": "^4.16.4",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "http-proxy-middleware": "^0.19.0",
+    "node-loader": "^0.6.0",
+    "node-sass": "^4.9.4",
+    "opn": "^5.4.0",
+    "ora": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "semver": "^5.6.0",
+    "shelljs": "^0.8.2",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^13.7.2",
+    "vue-style-loader": "^3.0.1",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^3.10.0",
+    "webpack-dev-middleware": "^1.12.2",
+    "webpack-hot-middleware": "^2.24.3",
+    "webpack-merge": "^4.1.4"
+  },
+  "engines": {
+    "node": ">= 8.0.0",
+    "npm": ">= 5.0.0"
+  },
+  "cordova": {
+    "platforms": [
+      "android",
+      "ios",
+      "browser"
+    ],
+    "plugins": {
+      "cordova-plugin-whitelist": {}
+    }
+  }
+}
